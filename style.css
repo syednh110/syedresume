@@ -1,0 +1,292 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+ 
+ :root{
+    --primary-bg-color: #1c2833;
+    --secondary-bg-color: #212f3d;
+    --txt-white: #fff;
+    --primary-color: #28b463;
+    --box-shadow: 10px 8px #28b463
+ }
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    overflow: hidden;
+ }
+a {
+    color: var(--txt-white);
+}
+
+header {
+    color: var(--txt-white);
+    background-color: var(--secondary-bg-color);
+    font-size: 1.2rem;
+    min-height: 100vh;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: var(--primary-bg-color);
+    height: 80px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 1.5rem 0.5rem;
+    margin: 0 1.4rem;
+    position: relative;
+}
+
+nav ul li a::after{
+    content: '';
+    position: absolute;
+    height: 3px;
+    background-color: var(--primary-color);
+    width: 0%;
+    left: 0;
+    top: 60px;
+    transition: all 0.4s;
+}
+
+nav ul li a:hover:after{
+    width: 100%;
+}
+
+.social-icons a {
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover{
+    color: var(--primary-color);
+}
+
+.logo{
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.logo span {
+    font-size: 4rem;
+}
+
+/* navbar close */
+
+
+/* showcase start */
+.content-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 84vh;
+    padding: 0 10%;
+}
+
+.content-left{
+    width: 70%;
+}
+
+.content-left .lead{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.txt-content{
+    display: flex;
+    width: 100%;
+}
+
+.normal-txt{
+    font-size: 3.5rem;
+    width: 15%;
+}
+
+.change-txt{
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+
+/* animation start */
+.txt-content .change-txt::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid #fff;
+    /* background: rgba(0, 0, 0, 1); */
+    background: var(--secondary-bg-color);
+    animation: animateTxt 5s steps(25) infinite;
+}
+/* animation close */
+.content-left p{
+    font-size: 1rem;
+    line-height: 2rem;
+    margin: 1rem 0;
+}
+
+.content-left button{
+    display: inline-block;
+    background: transparent;
+    border: 1px solid;
+    color: white;
+    padding: 1rem 2rem;
+    margin: 2rem 2rem 0 0;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 02px;
+    transition: all 0.5s;
+}
+
+.content-left button:hover{
+    background-color: var(--primary-color);
+    border: none;
+    padding: 1rem 3rem;
+}
+
+.content-left button:active{
+    transform: scale(0.90);
+}
+
+/* right-content start */
+
+.content-right {
+    width: 45%;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    background: #fff;
+    transform: translateX(300%);
+    animation: imgAnimation 1.5s forwards;
+}
+
+.content-right img{
+    display: block;
+    min-height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* right-content close */
+
+/* skill start */
+.skill{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--primary-bg-color);
+    color: #fff;
+    width: 100%;
+    padding: 0 0.1%;
+}
+
+.skill h2{
+    font-size: 2.8rem;
+    padding: 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.skill i {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.skill .html{
+    color: #e44f26;
+}
+
+.skill .css{
+    color: #1572b6;
+}
+
+.skill .js{
+    color: #ffd700;
+}
+
+.skill .react{
+    color: #61dfe6;
+}
+/* skill close */
+
+/* animation start */
+@keyframes imgAnimation {
+    to{
+        transform: translateX(0);
+        transform: skew(-3deg);
+    }
+}
+
+@keyframes animateTxt{
+    3%{
+        left: 0;
+    }
+    30%{
+        left: 100%;
+    }
+    80%{
+        left: 100%;
+    }
+    100%{
+        left: 0;
+    }
+}
+/* animation close */
+
+
+/* showcase close */
+
+/* media query start */
+
+@media (max-width: 600px) {
+    /* CSS rules to apply when screen size is less than 600px */
+    *{
+        font-size: 10px;
+    }
+    .change-txt{
+        font-size: 10px;
+    }
+    .txt-content .change-txt::before{
+        width: 100%;
+        height: 100%;
+        animation: animateTxt 5s steps(20) infinite;
+    }
+    .normal-txt{
+        font-size: 10px;
+    }
+    .content-right {
+        margin-bottom: 150%;
+    }
+    .content-left{
+        margin-top: 50%;
+        position: absolute;
+    }
+    .social-icon{
+        padding: -2rem;
+    }
+    h2{
+        font-size: 12px;
+    }
+    nav ul{
+        display: block;
+        position: absolute;
+        margin: 90% 70% 0 0;
+
+    }
+  }
+  
+
+/* media query close */
